@@ -1,3 +1,1 @@
 # DigiMed
-
-#THIS IS SATYANAND
