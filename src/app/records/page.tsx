@@ -1,29 +1,56 @@
 'use client';
 
-import React, { useState } from 'react';
-import Sidebar from '@/components/Sidebar';
+import React, { useState, useRef, useEffect } from 'react';
+import Navbar from '@/components/Navbar';
 import styles from './page.module.css';
-import { Search, Filter, MoreVertical, FileText, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { Search, Filter, MoreVertical, FileText, ChevronRight, Check } from 'lucide-react';
 
 const patients = [
-    { id: '1', name: 'John Doe', age: 45, gender: 'Male', lastVisit: '2024-01-31', reports: 12 },
-    { id: '2', name: 'Sarah Jenkins', age: 32, gender: 'Female', lastVisit: '2024-01-30', reports: 8 },
-    { id: '3', name: 'Michael Chen', age: 58, gender: 'Male', lastVisit: '2024-01-25', reports: 15 },
-    { id: '4', name: 'Emma Wilson', age: 29, gender: 'Female', lastVisit: '2024-01-15', reports: 5 },
-    { id: '5', name: 'Robert Taylor', age: 52, gender: 'Male', lastVisit: '2024-01-10', reports: 22 },
-    { id: '6', name: 'Lisa Anderson', age: 41, gender: 'Female', lastVisit: '2024-01-05', reports: 9 },
+    { id: 'P-10023', name: 'John Doe', age: 45, gender: 'Male', lastVisit: '2024-01-31', reports: 12, primaryReport: 'Cardiac Assessment' },
+    { id: 'P-10245', name: 'Sarah Jenkins', age: 32, gender: 'Female', lastVisit: '2024-01-30', reports: 8, primaryReport: 'Full Blood Work' },
+    { id: 'P-10567', name: 'Michael Chen', age: 58, gender: 'Male', lastVisit: '2024-01-25', reports: 15, primaryReport: 'MRI Neuro Scan' },
+    { id: 'P-10892', name: 'Emma Wilson', age: 29, gender: 'Female', lastVisit: '2024-01-15', reports: 5, primaryReport: 'Thyroid Profile' },
+    { id: 'P-11034', name: 'Robert Taylor', age: 52, gender: 'Male', lastVisit: '2024-01-10', reports: 22, primaryReport: 'Chest X-Ray' },
+    { id: 'P-11321', name: 'Lisa Anderson', age: 41, gender: 'Female', lastVisit: '2024-01-05', reports: 9, primaryReport: 'Urinalysis' },
 ];
 
 export default function RecordsPage() {
     const [searchTerm, setSearchTerm] = useState('');
+    const [activeFilter, setActiveFilter] = useState<'All' | 'Male' | 'Female'>('All');
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
-    const filteredPatients = patients.filter(p =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setShowDropdown(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const filteredPatients = patients.filter(p => {
+        const matchesSearch =
+            p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            p.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            p.primaryReport.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            p.lastVisit.includes(searchTerm);
+
+        const matchesFilter = activeFilter === 'All' || p.gender === activeFilter;
+
+        return matchesSearch && matchesFilter;
+    });
+
+    const handleFilterSelect = (filter: 'All' | 'Male' | 'Female') => {
+        setActiveFilter(filter);
+        setShowDropdown(false);
+    };
 
     return (
         <div className="dashboard-grid">
-            <Sidebar />
+            <Navbar />
             <main className={styles.main}>
                 <header className={styles.header}>
                     <h1>Patient Records</h1>
@@ -40,20 +67,56 @@ export default function RecordsPage() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <button className={styles.filterBtn}>
-                        <Filter size={18} />
-                        <span>Filter</span>
-                    </button>
+
+                    <div className={styles.filterWrapper} ref={dropdownRef}>
+                        <button
+                            className={`${styles.filterBtn} ${activeFilter !== 'All' ? styles.filterActive : ''} ${showDropdown ? styles.filterOpen : ''}`}
+                            onClick={() => setShowDropdown(!showDropdown)}
+                        >
+                            <Filter size={18} />
+                            <span>Filter: {activeFilter}</span>
+                        </button>
+
+                        {showDropdown && (
+                            <div className={`glass ${styles.filterDropdown}`}>
+                                <div className={styles.dropdownHeader}>Filter by Gender</div>
+                                <button
+                                    className={`${styles.dropdownItem} ${activeFilter === 'All' ? styles.itemActive : ''}`}
+                                    onClick={() => handleFilterSelect('All')}
+                                >
+                                    <span>All Patients</span>
+                                    {activeFilter === 'All' && <Check size={16} />}
+                                </button>
+                                <button
+                                    className={`${styles.dropdownItem} ${activeFilter === 'Male' ? styles.itemActive : ''}`}
+                                    onClick={() => handleFilterSelect('Male')}
+                                >
+                                    <span>Male Patients</span>
+                                    {activeFilter === 'Male' && <Check size={16} />}
+                                </button>
+                                <button
+                                    className={`${styles.dropdownItem} ${activeFilter === 'Female' ? styles.itemActive : ''}`}
+                                    onClick={() => handleFilterSelect('Female')}
+                                >
+                                    <span>Female Patients</span>
+                                    {activeFilter === 'Female' && <Check size={16} />}
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </section>
 
                 <section className={styles.patientGrid}>
                     {filteredPatients.map((patient) => (
-                        <div key={patient.id} className={`glass ${styles.patientCard}`}>
+                        <Link key={patient.id} href={`/records/${patient.id}`} className={`glass ${styles.patientCard}`}>
                             <div className={styles.patientAvatar}>{patient.name.split(' ').map(n => n[0]).join('')}</div>
                             <div className={styles.patientInfo}>
                                 <div className="flex justify-between items-start">
-                                    <h3>{patient.name}</h3>
-                                    <button className={styles.moreBtn}><MoreVertical size={18} /></button>
+                                    <div>
+                                        <h3>{patient.name}</h3>
+                                        <span className={styles.patientId}>ID: {patient.id} • {patient.primaryReport}</span>
+                                    </div>
+                                    <ChevronRight size={18} className={styles.chevronIcon} />
                                 </div>
                                 <p className={styles.patientMeta}>{patient.age} yrs • {patient.gender}</p>
 
@@ -68,15 +131,14 @@ export default function RecordsPage() {
                                     </div>
                                 </div>
 
-                                <div className={styles.patientActions}>
-                                    <button className={styles.viewRecordsBtn}>
-                                        <FileText size={16} />
-                                        <span>View History</span>
-                                        <ChevronRight size={16} className={styles.chevron} />
-                                    </button>
+                                <div className={styles.viewLabel}>
+                                    <span>Open Medical History</span>
+                                    <div className={styles.arrowBox}>
+                                        <FileText size={14} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </section>
             </main>

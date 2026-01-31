@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Sidebar from '@/components/Sidebar';
+import Navbar from '@/components/Navbar';
 import styles from './page.module.css';
 import {
     LineChart,
@@ -38,7 +38,7 @@ const cholesterolData = [
 export default function AnalyticsPage() {
     return (
         <div className="dashboard-grid">
-            <Sidebar />
+            <Navbar />
             <main className={styles.main}>
                 <header className={styles.header}>
                     <div className="flex justify-between items-start w-full">

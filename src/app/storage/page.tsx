@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Sidebar from '@/components/Sidebar';
+import Navbar from '@/components/Navbar';
 import styles from './page.module.css';
 import { Shield, Lock, HardDrive, File, Search, MoreHorizontal } from 'lucide-react';
 
@@ -16,7 +16,7 @@ const storedFiles = [
 export default function StoragePage() {
     return (
         <div className="dashboard-grid">
-            <Sidebar />
+            <Navbar />
             <main className={styles.main}>
                 <header className={styles.header}>
                     <h1>Secure Data Storage</h1>

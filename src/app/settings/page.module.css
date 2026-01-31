@@ -1,0 +1,466 @@
+.main {
+    padding: 2.5rem;
+    background: var(--background);
+    min-height: calc(100vh - 72px);
+}
+
+.profileContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header Wrapper */
+.headerWrapper {
+    background: var(--card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.bannerContainer {
+    height: 120px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    position: relative;
+    overflow: hidden;
+}
+
+.bannerGlow {
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotateGlow 20s linear infinite;
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profileMainInfo {
+    padding: 0 2.5rem 2rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+}
+
+.avatarContainer {
+    position: relative;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    background: var(--card);
+    border: 6px solid var(--background);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cameraBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--background);
+    transition: all 0.2s ease;
+}
+
+.doctorIdentifier {
+    flex: 1;
+}
+
+.nameRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nameRow h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.verifiedBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.titleText {
+    color: var(--secondary);
+    font-size: 1.125rem;
+    margin: 0.25rem 0 1rem;
+}
+
+.quickStats {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.stat svg {
+    color: var(--primary);
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 50%;
+}
+
+.headerActions {
+    margin-bottom: 0.5rem;
+}
+
+.saveBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Dual Grid Layout */
+.dualGrid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+}
+
+.leftCol,
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profileCard {
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.iconBox {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionHeader h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.formItem label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.clinicalInput {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--foreground);
+    font-size: 0.9375rem;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon svg {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+}
+
+.clinicalTextarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--foreground);
+    resize: none;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+/* Expertise Tags */
+.expertiseTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tag {
+    background: var(--input);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tagRemove {
+    color: var(--secondary);
+    font-size: 1.25rem;
+    line-height: 0;
+    padding-bottom: 2px;
+}
+
+.addTag {
+    background: transparent;
+    border: 1px dashed var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Education Timeline */
+.eduTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.eduItem {
+    display: flex;
+    gap: 1.25rem;
+    position: relative;
+}
+
+.eduItem:not(:last-child):after {
+    content: '';
+    position: absolute;
+    left: 4.5px;
+    top: 25px;
+    bottom: -15px;
+    width: 2px;
+    background: var(--border);
+}
+
+.eduPoint {
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-top: 6px;
+    z-index: 1;
+}
+
+.eduInfo h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.eduInfo p {
+    margin: 0.125rem 0;
+    font-size: 0.875rem;
+    color: var(--secondary);
+}
+
+.eduInfo span {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Communication */
+.commGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.commItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--input);
+    border-radius: 16px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.commItem:hover {
+    border-color: var(--primary);
+    background: var(--card);
+}
+
+.commIcon {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.commText {
+    flex: 1;
+}
+
+.commText span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary);
+}
+
+.commText p {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.extIcon {
+    color: var(--secondary);
+}
+
+/* Signature */
+.signatureSection {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 2rem;
+    border-radius: 24px;
+    color: white;
+}
+
+.signatureHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.signatureHeader h3 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+.signatureBox {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.placeholderSig {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.updateSigBtn {
+    background: white;
+    color: #0f172a;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.sigNotice {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .dualGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,85 +1,293 @@
 .main {
-    padding: 2rem;
+    padding: 2.5rem;
+    max-height: calc(100vh - 72px);
     overflow-y: auto;
-    max-height: 100vh;
 }
 
 .header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 .subtitle {
     color: var(--secondary);
-    font-size: 1rem;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
 }
 
 .uploadContainer {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    max-width: 800px;
+    gap: 1.5rem;
 }
 
-.uploadCard {
+.card {
     padding: 2rem;
-    border-radius: var(--radius);
-    border: 2px dashed var(--border);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stepNumber {
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.searchWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+}
+
+.idInput {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--foreground);
+    font-size: 0.9375rem;
+}
+
+.verifyBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
     transition: all 0.2s ease;
 }
 
-.uploadCard:hover {
-    border-color: var(--primary);
-    background: rgba(37, 99, 235, 0.02);
+.verifyBtn:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
-.dropzone {
-    position: relative;
-    text-align: center;
+.verifyBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.fileInput {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.dropzoneLabel {
+/* Registration Form */
+.registrationForm {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
+}
+
+.regNotice {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+    border-radius: 10px;
+    font-size: 0.875rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formItem label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.formItem input,
+.formGrid select {
+    padding: 0.875rem;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--foreground);
+    font-size: 0.9375rem;
+    width: 100%;
+}
+
+.formItem input:focus,
+.formGrid select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.fullWidth {
+    grid-column: span 3;
+}
+
+@media (max-width: 640px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .fullWidth {
+        grid-column: span 1;
+    }
+}
+
+.actionFooter {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+.primaryActionBtn {
+    width: 100%;
+    max-width: 500px;
+    background: var(--primary);
+    color: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+.primaryActionBtn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+}
+
+.primaryActionBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Patient Verified */
+.patientVerified {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--input);
+    padding: 1.25rem;
+    border-radius: 15px;
+    border: 1px solid var(--success);
+}
+
+.verifiedInfo {
+    display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.uploadIconWrapper {
-    width: 64px;
-    height: 64px;
-    background: var(--primary-light);
-    color: var(--primary);
+.userCircle {
+    width: 44px;
+    height: 44px;
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.dropzoneLabel h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
+.verifiedInfo h4 {
+    margin: 0;
+    font-size: 1.125rem;
 }
 
-.dropzoneLabel p {
-    color: var(--secondary);
+.verifiedInfo p {
+    margin: 0;
     font-size: 0.875rem;
+    color: var(--secondary);
+}
+
+.changeBtn {
+    font-size: 0.875rem;
+    color: var(--primary);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+
+/* File Upload */
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+.dropzone {
+    position: relative;
+    border: 2px dashed var(--border);
+    border-radius: 15px;
+    text-align: center;
+    padding: 3rem;
+    transition: all 0.2s ease;
+}
+
+.dropzone:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.fileInput {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.uploadIconWrapper {
+    margin-bottom: 1rem;
+    color: var(--primary);
 }
 
 .filePreview {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1.5rem;
+    background: var(--input);
+    border-radius: 12px;
 }
 
 .fileInfo {
@@ -94,52 +302,73 @@
 
 .fileName {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9375rem;
 }
 
 .fileSize {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--secondary);
 }
 
 .previewActions {
     display: flex;
-    gap: 1rem;
-    align-items: center;
+    gap: 0.75rem;
 }
 
 .analyzeBtn {
     background: var(--primary);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius);
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.2s ease;
-}
-
-.analyzeBtn:hover:not(:disabled) {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-}
-
-.analyzeBtn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
 }
 
 .removeBtn {
-    color: var(--secondary);
+    color: var(--error);
     padding: 0.5rem;
-    border-radius: 50%;
-    transition: all 0.2s ease;
 }
 
-.removeBtn:hover {
-    background: var(--input);
-    color: var(--error);
+/* Results */
+.resultCard {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: var(--success);
+}
+
+.entitiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.entityItem {
+    padding: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.entityLabel {
+    font-size: 0.75rem;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+.entityValue {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.saveBtn {
+    width: 100%;
+    background: var(--success);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
 }
 
 .spin {
@@ -154,140 +383,4 @@
     to {
         transform: rotate(360deg);
     }
-}
-
-.resultCard {
-    padding: 2rem;
-    border-radius: var(--radius);
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.resultHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.successIcon {
-    color: var(--success);
-}
-
-.patientBadge {
-    background: var(--primary-light);
-    color: var(--primary);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.875rem;
-}
-
-.entitiesGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.entityItem {
-    padding: 1.25rem;
-    background: var(--input);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.entityLabel {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.entityValue {
-    font-size: 1.125rem;
-    font-weight: 700;
-}
-
-.entityStatus {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-}
-
-.normal {
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--success);
-}
-
-.optimal {
-    background: rgba(6, 182, 212, 0.1);
-    color: var(--accent);
-}
-
-.low {
-    background: rgba(245, 158, 11, 0.1);
-    color: var(--warning);
-}
-
-.high {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--error);
-}
-
-.analysisSummary {
-    padding: 1.5rem;
-    background: var(--primary-light);
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.analysisSummary h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary);
-}
-
-.analysisSummary p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--foreground);
-}
-
-.resultActions {
-    display: flex;
-    gap: 1rem;
-}
-
-.saveBtn {
-    background: var(--primary);
-    color: white;
-    padding: 0.875rem 2rem;
-    border-radius: var(--radius);
-    font-weight: 600;
-    flex: 1;
-}
-
-.printBtn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--foreground);
-    padding: 0.875rem 2rem;
-    border-radius: var(--radius);
-    font-weight: 600;
 }

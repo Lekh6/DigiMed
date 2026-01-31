@@ -48,6 +48,11 @@
     box-shadow: 0 0 0 4px var(--ring);
 }
 
+.filterWrapper {
+    position: relative;
+    display: flex;
+}
+
 .filterBtn {
     display: flex;
     align-items: center;
@@ -57,7 +62,80 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 100%;
+}
+
+.filterOpen {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.filterBtn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+}
+
+.filterActive {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.filterActive:hover {
+    background: var(--primary);
+    opacity: 0.9;
+}
+
+.filterDropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.5rem;
+    z-index: 100;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownHeader {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dropdownItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--foreground);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.itemActive {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
 }
 
 .patientGrid {
@@ -72,11 +150,16 @@
     display: flex;
     gap: 1.25rem;
     transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border);
 }
 
 .patientCard:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .patientAvatar {
@@ -102,14 +185,23 @@
     margin-bottom: 0.25rem;
 }
 
-.moreBtn {
+.patientId {
+    font-size: 0.75rem;
     color: var(--secondary);
-    padding: 0.25rem;
-    border-radius: 4px;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
-.moreBtn:hover {
-    background: var(--input);
+.chevronIcon {
+    color: var(--secondary);
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.patientCard:hover .chevronIcon {
+    color: var(--primary);
+    opacity: 1;
+    transform: translateX(2px);
 }
 
 .patientMeta {
@@ -139,28 +231,38 @@
     font-weight: 600;
 }
 
-.patientActions {
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-}
-
-.viewRecordsBtn {
-    width: 100%;
+.viewLabel {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.patientCard:hover .viewLabel {
     color: var(--primary);
-    font-weight: 600;
-    font-size: 0.875rem;
-    padding: 0.5rem;
+    border-top-color: var(--primary-light);
+}
+
+.arrowBox {
+    width: 28px;
+    height: 28px;
+    background: var(--input);
     border-radius: 8px;
-    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
 }
 
-.viewRecordsBtn:hover {
-    background: var(--primary-light);
-}
-
-.chevron {
-    margin-left: auto;
+.patientCard:hover .arrowBox {
+    background: var(--primary);
+    color: white;
+    transform: rotate(-10deg);
 }

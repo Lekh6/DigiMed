@@ -1,0 +1,398 @@
+.main {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 72px);
+    background: var(--background);
+}
+
+.header {
+    margin-bottom: 2.5rem;
+}
+
+.backBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.backBtn:hover {
+    color: var(--primary);
+}
+
+.profileHero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.heroLeft {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.avatarLarge {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+.basicInfo h1 {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.statusBadgeActive {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.metaText {
+    margin-top: 0.75rem;
+    color: var(--secondary);
+    font-size: 0.9375rem;
+}
+
+.bloodType {
+    color: #ef4444;
+    font-weight: 800;
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btnPrimary,
+.btnSecondary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.btnPrimary {
+    background: var(--primary);
+    color: white;
+}
+
+.btnPrimary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btnSecondary {
+    background: var(--input);
+    color: var(--foreground);
+}
+
+/* Layout Grid */
+.contentLayout {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 1280px) {
+    .contentLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Vitals Cards */
+.vitalsSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.vitalCard {
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.vitalIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.vitalContent label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.vitalContent span {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.vitalContent small {
+    font-size: 0.8125rem;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+/* Enhanced Heart Rate Styling */
+.bpmValue {
+    color: #ef4444;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+.heartBeat {
+    animation: heartBeat 1.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.3);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+.ecgLine {
+    filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.4));
+}
+
+/* Trends Grid */
+.trendsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .trendsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chartBox {
+    padding: 1.5rem;
+    border-radius: 20px;
+}
+
+.boxHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.boxHeader h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chartArea {
+    width: 100%;
+}
+
+.pieLegend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--secondary);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* Right Column */
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sideBox {
+    padding: 1.5rem;
+    border-radius: 20px;
+}
+
+/* Blood Table */
+.bloodTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bloodTable th {
+    text-align: left;
+    font-size: 0.75rem;
+    color: var(--secondary);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.bloodTable td {
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.8125rem;
+}
+
+.bloodTable td small {
+    color: var(--secondary);
+}
+
+.statusDot {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.6875rem;
+}
+
+.normal {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.low {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+}
+
+.borderline {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+/* Report & Notes */
+.conditionTag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--input);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.conditionTag strong {
+    margin-left: auto;
+    color: var(--primary);
+}
+
+.notesSection h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.notesArea {
+    width: 100%;
+    min-height: 140px;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.2s ease;
+    line-height: 1.6;
+}
+
+.notesArea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--card);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Action Center */
+.actionBox h3 {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.actionGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.actionBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--input);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.actionBtn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
