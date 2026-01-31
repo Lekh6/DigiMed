@@ -1,0 +1,198 @@
+.main {
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.subtitle {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.dateDisplay {
+  background: var(--card);
+  padding: 0.625rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trendUp {
+  color: var(--success);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.trendDown {
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.statLabel {
+  color: var(--secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.statValue {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1280px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mainContent,
+.sidePanel {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionIcon {
+  color: var(--primary);
+}
+
+.viewAll {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.patientName {
+  font-weight: 600;
+}
+
+.statusBadge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.inanalysis {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+}
+
+.insightsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.insightItem {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--input);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.insightIcon {
+  color: var(--primary);
+  margin-top: 0.125rem;
+}
+
+.insightText {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.insightText strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}

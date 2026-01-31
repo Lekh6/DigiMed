@@ -1,0 +1,153 @@
+.main {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.header {
+    margin-bottom: 2.5rem;
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.storageOverview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.overviewCard {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cardIcon {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.overviewCard h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.overviewCard p {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.usageBar {
+    width: 100%;
+    height: 6px;
+    background: var(--input);
+    border-radius: 3px;
+    margin-top: 0.5rem;
+}
+
+.usageFill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.statusBadge {
+    color: var(--success);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.manageBtn {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.fileTableContainer {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: var(--input);
+    border-radius: 8px;
+    width: 300px;
+}
+
+.searchBox input {
+    background: transparent;
+    border: none;
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--secondary);
+    font-size: 0.875rem;
+}
+
+.table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.875rem;
+}
+
+.fileIcon {
+    color: var(--secondary);
+}
+
+.fileName {
+    font-weight: 600;
+}
+
+.encryptionTag {
+    background: var(--input);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.secureDot {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+}
+
+.statusText {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.moreBtn {
+    color: var(--secondary);
+}

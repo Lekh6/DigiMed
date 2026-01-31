@@ -1,0 +1,293 @@
+.main {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.header {
+    margin-bottom: 2.5rem;
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.uploadContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+}
+
+.uploadCard {
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 2px dashed var(--border);
+    transition: all 0.2s ease;
+}
+
+.uploadCard:hover {
+    border-color: var(--primary);
+    background: rgba(37, 99, 235, 0.02);
+}
+
+.dropzone {
+    position: relative;
+    text-align: center;
+}
+
+.fileInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.dropzoneLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.uploadIconWrapper {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropzoneLabel h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.dropzoneLabel p {
+    color: var(--secondary);
+    font-size: 0.875rem;
+}
+
+.filePreview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fileInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fileIcon {
+    color: var(--primary);
+}
+
+.fileName {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.fileSize {
+    font-size: 0.875rem;
+    color: var(--secondary);
+}
+
+.previewActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.analyzeBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.analyzeBtn:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.analyzeBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.removeBtn {
+    color: var(--secondary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.removeBtn:hover {
+    background: var(--input);
+    color: var(--error);
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.resultCard {
+    padding: 2rem;
+    border-radius: var(--radius);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.successIcon {
+    color: var(--success);
+}
+
+.patientBadge {
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.entitiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.entityItem {
+    padding: 1.25rem;
+    background: var(--input);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.entityLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.entityValue {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.entityStatus {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.normal {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.optimal {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--accent);
+}
+
+.low {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.high {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+}
+
+.analysisSummary {
+    padding: 1.5rem;
+    background: var(--primary-light);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.analysisSummary h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.analysisSummary p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--foreground);
+}
+
+.resultActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.saveBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    flex: 1;
+}
+
+.printBtn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+}

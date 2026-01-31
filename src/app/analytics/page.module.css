@@ -1,0 +1,123 @@
+.main {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.header {
+    margin-bottom: 2.5rem;
+    display: flex;
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.headerActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.filterBtn,
+.downloadBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.filterBtn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+}
+
+.downloadBtn {
+    background: var(--primary);
+    color: white;
+}
+
+.downloadBtn:hover {
+    background: var(--primary-hover);
+}
+
+.chartsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.fullWidth {
+    grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+    .chartsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .fullWidth {
+        grid-column: span 1;
+    }
+}
+
+.chartCard {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+
+.chartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.chartHeader h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.chartIcon {
+    color: var(--primary);
+}
+
+.trendInfo {
+    font-size: 0.875rem;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+.chartWrapper {
+    width: 100%;
+}
+
+.distributionList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.distItem span {
+    font-size: 0.875rem;
+    color: var(--secondary);
+}
+
+.progressBar {
+    width: 100%;
+    height: 8px;
+    background: var(--input);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: 4px;
+}

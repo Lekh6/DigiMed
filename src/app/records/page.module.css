@@ -1,0 +1,166 @@
+.main {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.header {
+    margin-bottom: 2.5rem;
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.searchSection {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.searchBar {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1.25rem;
+    color: var(--secondary);
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.searchBar input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--ring);
+}
+
+.filterBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.patientGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.patientCard {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.patientCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.patientAvatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.patientInfo {
+    flex: 1;
+}
+
+.patientInfo h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.moreBtn {
+    color: var(--secondary);
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.moreBtn:hover {
+    background: var(--input);
+}
+
+.patientMeta {
+    font-size: 0.875rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.patientStats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.statLine {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.statLabel {
+    color: var(--secondary);
+}
+
+.statValue {
+    font-weight: 600;
+}
+
+.patientActions {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.viewRecordsBtn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.viewRecordsBtn:hover {
+    background: var(--primary-light);
+}
+
+.chevron {
+    margin-left: auto;
+}
